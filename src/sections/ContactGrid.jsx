@@ -6,7 +6,6 @@ import styles from "../styles/sec-styles/contactGrid.module.scss";
 
 // Json Import:
 import DummyContacts from "../data/DummyContact.json";
-import { SearchOff } from "@mui/icons-material";
 
 const ContactGrid = () => {
   const [data, setData] = useState(DummyContacts);
@@ -27,7 +26,7 @@ const ContactGrid = () => {
           ?.filter((item) => {
             return search.toLowerCase() === ""
               ? item
-              : item.first_name.toLocaleLowerCase().includes(SearchOff);
+              : item.first_name.toLowerCase().includes(search);
           })
           .map((item) => (
             <div className={styles.contactCard} key={item.id}>
