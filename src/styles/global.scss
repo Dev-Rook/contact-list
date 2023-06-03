@@ -1,0 +1,14 @@
+.page {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0px;
+  // gap: 50px;
+  overflow: hidden;
+
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
