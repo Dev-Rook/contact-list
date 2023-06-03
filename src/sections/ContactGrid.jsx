@@ -7,6 +7,9 @@ import styles from "../styles/sec-styles/contactGrid.module.scss";
 // Json Import:
 import DummyContacts from "../data/DummyContact.json";
 
+// Material UI Import:
+import SearchIcon from "@mui/icons-material/Search";
+
 const ContactGrid = () => {
   const [data, setData] = useState(DummyContacts);
   const [search, setSearch] = useState("");
@@ -15,6 +18,7 @@ const ContactGrid = () => {
   return (
     <div className="section">
       <div className={styles.inputContainer}>
+      <SearchIcon sx={{color: "black"}} />
         <input
           type="text"
           className={styles.input}
@@ -30,7 +34,16 @@ const ContactGrid = () => {
           })
           .map((item) => (
             <div className={styles.contactCard} key={item.id}>
-              {item.first_name}
+              <div className={styles.imageContainer}>
+                <img src="" alt="" className={styles.img} />
+              </div>
+              <div className={styles.deatailsContainer}>
+                <p className={styles.name}></p>
+                <p className={styles.description}></p>
+              </div>
+              <div className={styles.callToActionContainer}>
+                
+              </div>
             </div>
           ))}
       </div>

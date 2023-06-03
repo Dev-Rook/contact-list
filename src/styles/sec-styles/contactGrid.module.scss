@@ -1,0 +1,50 @@
+.inputContainer {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  align-self: flex-end;
+
+  padding: 0.5rem 0.75rem;
+  gap: 10px;
+
+  height: 30px;
+  width: fit-content;
+
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(245, 244, 242);
+
+  .input {
+    background-color: rgb(245, 244, 242);
+    outline: none;
+    border: none;
+  }
+}
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 20px;
+
+  justify-content: center;
+  align-items: center;
+
+  height: fit-content;
+  width: 100%;
+
+  .contactCard {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 0px;
+    gap: 0px;
+
+    height: fit-content;
+    width: 100%;
+
+    border: 1px solid white;
+  }
+}
