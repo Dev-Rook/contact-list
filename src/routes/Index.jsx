@@ -5,6 +5,7 @@ import "../styles/global.scss";
 import PageHead from "../components/PageHead";
 
 // Section Import:
+import ContactGrid from "../sections/ContactGrid";
 
 const Index = () => {
   // Header Props:
@@ -13,6 +14,7 @@ const Index = () => {
   return (
     <div className="page">
       <PageHead title={title} image={image} />
+      <ContactGrid />
     </div>
   );
 };
