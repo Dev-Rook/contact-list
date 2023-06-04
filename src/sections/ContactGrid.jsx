@@ -8,7 +8,6 @@ import styles from "../styles/sec-styles/contactGrid.module.scss";
 import DummyContacts from "../data/DummyContact.json";
 
 // Material UI Import:
-import SearchIcon from "@mui/icons-material/Search";
 import TagIcon from '@mui/icons-material/Tag';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
@@ -39,10 +38,14 @@ const ContactGrid = () => {
                 <p className={styles.name}>
                   {item.first_name} {item.last_name}
                 </p>
+                <p className={styles.other}>
+                  {item.gender}, {item.phone}
+                </p>
                 <p className={styles.bio}>{item.bio.slice(0, 40)}...</p>
               </div>
               <div className={styles.callToActionContainer}>
                 <button className={styles.actionButton}>Profile</button>
+                <MoreVertIcon sx={{fontSize: 25}} className={styles.moreIcon} />
               </div>
             </div>
           ))}
