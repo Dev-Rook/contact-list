@@ -7,6 +7,7 @@ import useFirebase from "../firebase/useFirebase";
 // Styles Import:
 import "../styles/global.scss";
 import styles from "../styles/sec-styles/contactGrid.module.scss";
+import "../styles/imported-styles/smallCard.css";
 
 // Json Import:
 import DummyContacts from "../data/DummyContact.json";
@@ -22,45 +23,45 @@ const ContactGrid = () => {
   const [data, setData] = useState(DummyContacts);
   const [search, setSearch] = useState("");
 
-  const {contact, loading, error} = useFirebase()
+  const { contact, loading, error } = useFirebase();
 
   return (
     <div className="section">
       <Input setSearch={setSearch} />
-      <div className={styles.contactGrid2}>
-        {contact
+      <div className={"contactGrid"}>
+        {data
           ?.filter((item) => {
             return search.toLowerCase() === ""
               ? item
               : item.first_name.toLowerCase().includes(search);
-          }).slice(0, 1)
+          })
+          .slice(0, 4)
           .map((item) => (
-            <div className={styles.contactCard2} key={item.id}>
-              <div className={styles.imageContainer2}>
-                <img src={""} alt="" className={styles.img2} />
+            <div className="card" key={item.id}>
+              <div className="infos">
+                <div className="imageContainer"></div>
+                <div className="info">
+                  <div>
+                    <p className="name">
+                      {item.first_name} {item.last_name}
+                    </p>
+                    <p className="function">{item.occupation}</p>
+                  </div>
+                  <div className="stats">
+                    <p className="flex flex-col">
+                      Gender
+                      <span className="state-value">{item.gender}</span>
+                    </p>
+                    <p className="flex">
+                      Followers
+                      <span className="state-value">455</span>
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className={styles.deatailsContainer2}>
-                <p className={styles.name2}>
-                  {item.first_name} {item.last_name}
-                </p>
-                <p>
-                  {item.phone}
-                </p>
-                <p>
-                  {item.email}
-                </p>
-
-                <p className={styles.bio2}>{item.bio.slice(0, 40)}...</p>
-              </div>
-              <div className={styles.callToActionContainer2}>
-                <Link to={`/profile/${item.id}`}>
-                  <button className={styles.actionButton2}>Profile</button>
-                </Link>
-                <MoreVertIcon
-                  sx={{ fontSize: 25 }}
-                  className={styles.moreIcon2}
-                />
-              </div>
+              <button className="request" type="button">
+                Profile
+              </button>
             </div>
           ))}
       </div>

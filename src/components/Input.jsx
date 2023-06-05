@@ -9,12 +9,12 @@ const Input = ({ setSearch }) => {
   const GitHub_Link = `https://github.com/Dev-Rook/contact-list`;
   return (
     <div className={styles.wrapper}>
-      <a href={GitHub_Link} target="_blank" rel="noreferrer">
+      {/* <a href={GitHub_Link} target="_blank" rel="noreferrer">
         <GitHubIcon
           sx={{ color: "", height: 35, width: 35 }}
           className={styles.addBox}
         />
-      </a>
+      </a> */}
       <div className={styles.inputContainer}>
         <SearchIcon sx={{ color: "black" }} />
         <input

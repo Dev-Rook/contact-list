@@ -14,7 +14,7 @@ import PageHead from "../components/PageHead";
 const Profile = () => {
   const { id } = useParams();
   const [details, setDetails] = useState({});
-  const contactRef = collection(db, `contact,${id}`);
+  const contactRef = collection(db, `${id}`);
 
   useEffect(() => {
     const getContact = async () => {
@@ -28,6 +28,7 @@ const Profile = () => {
   // Header Props:
   const title = "Profile";
   const image = "";
+  
   return (
     <div className="page">
       <PageHead title={title} image={image} />
