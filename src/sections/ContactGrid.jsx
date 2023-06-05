@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // Firebase 🔥
@@ -6,15 +6,10 @@ import useFirebase from "../firebase/useFirebase";
 
 // Styles Import:
 import "../styles/global.scss";
-import styles from "../styles/sec-styles/contactGrid.module.scss";
 import "../styles/imported-styles/smallCard.css";
 
 // Json Import:
 import DummyContacts from "../data/DummyContact.json";
-
-// Material UI Import:
-import TagIcon from "@mui/icons-material/Tag";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 // Component Import:
 import Input from "../components/Input";
@@ -29,13 +24,13 @@ const ContactGrid = () => {
     <div className="section">
       <Input setSearch={setSearch} />
       <div className={"contactGrid"}>
-        {data
+        {contact
           ?.filter((item) => {
             return search.toLowerCase() === ""
               ? item
               : item.first_name.toLowerCase().includes(search);
           })
-          .slice(0, 4)
+          .slice(0, 6)
           .map((item) => (
             <div className="card" key={item.id}>
               <div className="infos">
@@ -59,11 +54,18 @@ const ContactGrid = () => {
                   </div>
                 </div>
               </div>
+              <Link to={`/profile/${item.id}`}>
               <button className="request" type="button">
                 Profile
               </button>
+              </Link>
             </div>
           ))}
+      </div>
+      <div className={"callToActionBox"}>
+        <Link to={`/contacts`}>
+          <button className={"viewButton"}>Vew All</button>
+        </Link>
       </div>
     </div>
   );

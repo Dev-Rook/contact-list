@@ -27,6 +27,46 @@
   width: 1000px;
 }
 
+.callToActionBox {
+  display: none;
+
+  justify-content: space-between;
+  align-items: center;
+  align-self: flex-end;
+
+  gap: 10px;
+  padding: 0px;
+  margin-right: 20px;
+
+  height: fit-content;
+  width: fit-content;
+
+  .viewButton {
+    padding: 5px 20px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+  }
+
+  .viewButton:is(:hover) {
+    transform: scale(0.9);
+    transition: 0.5s;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .callToActionBox {
+    margin-right: 0px
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .section {
     width: 100%;
