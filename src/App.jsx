@@ -8,12 +8,16 @@ import "./App.css";
 // Routes Import:
 import Index from "./routes/Index";
 
+// Dynamic Routes:
+import Profile from "./dynamic-routes/Profile";
+
 function App() {
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/profile/:id" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>
