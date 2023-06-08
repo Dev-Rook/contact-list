@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 // Firebase 🔥
 import { db } from "../firebase/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDoc } from "firebase/firestore";
 
 // Styles Import:
 import "../styles/global.scss";
@@ -14,15 +14,17 @@ import PageHead from "../components/PageHead";
 const Profile = () => {
   const { id } = useParams();
   const [details, setDetails] = useState({});
-  const contactRef = collection(db, `${id}`);
+  const contactRef = collection(db, `contact + ${id}`);
 
   useEffect(() => {
     const getContact = async () => {
-      const data = await getDocs(contactRef);
-      setDetails(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const snapshot = await getDoc(contactRef);
+      const data = snapshot.data();
+      // setDetails({ ...data, id: snapshot.id });
+      setDetails(data.docs.map((doc) => ({ ...data, id: snapshot.id })));
       console.log(data);
     };
-    getContact();
+    return () => getContact();
   }, []);
 
   // Header Props:

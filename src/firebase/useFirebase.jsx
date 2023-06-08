@@ -22,7 +22,7 @@ const useFirebase = () => {
     } finally {
       setLoading(false);
     }
-  }, [contactRef]);
+  }, []);
 
   useEffect(() => {
     getContact();

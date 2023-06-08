@@ -25,3 +25,13 @@
   />
 </div>
 </div>
+
+
+
+getContact = async () => {
+  const snapshot = await getDoc(contactRef);
+  const data = snapshot.data();
+  setDetails(data.docs.map((doc) => ({ ...data, id: snapshot.id })));
+};
+
+setDetails(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
