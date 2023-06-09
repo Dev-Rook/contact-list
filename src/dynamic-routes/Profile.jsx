@@ -22,7 +22,7 @@ const Profile = () => {
     try {
       const data = await getDoc(doc(db, "contact", id));
       setDetails({ ...data(), id });
-      console.log(data);
+      console.log(data());
     } catch (err) {
       setError(err.message);
     } finally {
