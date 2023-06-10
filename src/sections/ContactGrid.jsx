@@ -18,8 +18,12 @@ const ContactGrid = () => {
   const [data, setData] = useState(DummyContacts);
   const [search, setSearch] = useState("");
 
+<<<<<<< HEAD
   const table = 'contact'
   const { contact, loading, error } = useFirebase(table);
+=======
+  const { contact, loading, error } = useFirebase({table:'contact'});
+>>>>>>> 8f07ddf1c6cf896928a34c6746905184f667db63
 
   return (
     <div className="section">
