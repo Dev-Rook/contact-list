@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { db } from "../firebase/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-const useFirebase = ({table}) => {
+const useFirebase = (table) => {
   const [contact, setContact] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();

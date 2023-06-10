@@ -18,7 +18,8 @@ const ContactGrid = () => {
   const [data, setData] = useState(DummyContacts);
   const [search, setSearch] = useState("");
 
-  const { contact, loading, error } = useFirebase();
+  const table = 'contact'
+  const { contact, loading, error } = useFirebase(table);
 
   return (
     <div className="section">

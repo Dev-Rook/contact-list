@@ -21,7 +21,8 @@ const Profile = () => {
     setLoading(true);
     try {
       const data = await getDoc(doc(db, "contact", id));
-      setDetails({ ...data(), id });
+      const contactData = data.data();
+      setDetails(contactData);
       console.log(data);
     } catch (err) {
       setError(err.message);
@@ -48,7 +49,9 @@ const Profile = () => {
   return (
     <div className="page">
       <PageHead title={title} image={image} />
-      {details.firt_name}
+      <p>{details.first_name}</p>
+      <p>{details.last_name}</p>
+      <p>{details.gender}</p>
     </div>
   );
 };
