@@ -37,12 +37,19 @@
   height: 7rem;
   width: 7rem;
   border-radius: 0.5rem;
+  overflow: hidden;
   background-color: rgb(118, 36, 194);
   background: linear-gradient(
     to bottom right,
     rgb(118, 36, 194),
     rgb(185, 128, 240)
   );
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .info {

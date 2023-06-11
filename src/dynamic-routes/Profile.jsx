@@ -7,6 +7,7 @@ import { doc, getDoc } from "firebase/firestore";
 
 // Styles Import:
 import "../styles/global.scss";
+import styles from "../styles/sec-styles/profileInfo.module.scss";
 
 // Component Import:
 import PageHead from "../components/PageHead";
@@ -31,27 +32,32 @@ const Profile = () => {
     }
   }, [id]);
 
-  // useEffect(() => {
-  //   const getContact = async () => {
-  //     const snapshot = await getDoc(contactRef);
-  //     const data = snapshot.data();
-  //     // setDetails({ ...data, id: snapshot.id });
-  //     setDetails(data.docs.map((doc) => ({ ...data, id: snapshot.id })));
-  //     console.log(data);
-  //   };
-  //   return () => getContact();
-  // }, []);
-
-  // Header Props:
   const title = "Profile";
   const image = "";
 
   return (
     <div className="page">
       <PageHead title={title} image={image} />
-      <p>{details.first_name}</p>
-      <p>{details.last_name}</p>
-      <p>{details.gender}</p>
+      <div className="section">
+        <div className={styles.contentContainer}>
+          <div className={styles.imageContainer}>
+            <img src={details.img} alt="" className={styles.img} />
+          </div>
+          <div className={styles.infoContainer}>
+            {/* <div className={styles.nameBox}></div> */}
+            <p>
+              {details.title}, {details.first_name} {details.last_name}
+            </p>
+            <p>Gender: {details.gender}</p>
+            <p>Age: {details.age}</p>
+            <p>Occupation: {details.occupation}</p>
+            <p>Phone: {details.phone}</p>
+            <p>Email: {details.email}</p>
+            <p>Address: {details.address}</p>
+            <p>Bio: {details.bio}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
